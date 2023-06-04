@@ -1,22 +1,20 @@
 package org.recipetoria.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.recipetoria.base.TestBase;
-import org.recipetoria.pages.SighupPage;
+import org.recipetoria.pages.SignUpPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
 
-public class sighUp extends TestBase {
-    SighupPage sighupPage;
+public class SighUpTest extends TestBase {
+    SignUpPage signUpPage;
     @Test
     public void registrationNewUser() {
-        sighupPage = new SighupPage(driver);
+        signUpPage = new SignUpPage(getDriver());
 
-        sighupPage.setGetStartedBtn();
-        String welcome = sighupPage.setGetWelcomeText();
+        signUpPage.setGetStartedBtn();
+        String welcome = signUpPage.setGetWelcomeText();
         Assert.assertEquals(welcome, "Welcome to Reciptoria!");
 
 //        WebElement buttonLogIn = getDriver().findElement(By.xpath("//a[text() = 'Log in']"));

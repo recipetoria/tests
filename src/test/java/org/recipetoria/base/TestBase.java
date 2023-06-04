@@ -13,13 +13,17 @@ import org.testng.annotations.BeforeSuite;
 
 import java.io.*;
 import java.lang.reflect.Method;
+import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-    protected static WebDriver driver;
+    private static WebDriver driver;
     public static Properties envConfig;
-    WebDriverWait wait;
+    private WebDriverWait wait1;
+    private WebDriverWait wait2;
+    private WebDriverWait wait5;
+    private WebDriverWait wait10;
 
     public static final String ENV = System.getProperty("env", "Production");
     public static final String BROWSER = System.getProperty("browser", "Chrome");
@@ -63,6 +67,37 @@ public class TestBase {
         driver.quit();
     }
 
+    public WebDriverWait getWait1() {
+        if (wait1 == null) {
+            wait1 = new WebDriverWait(driver, Duration.ofSeconds(1));
+        }
+        return wait1;
+    }
+
+    public WebDriverWait getWait2() {
+        if (wait2 == null) {
+            wait2 = new WebDriverWait(driver, Duration.ofSeconds(2));
+        }
+        return wait2;
+    }
+
+    public WebDriverWait getWait5() {
+        if (wait5 == null) {
+            wait5 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        }
+        return wait5;
+    }
+
+    public WebDriverWait getWait10() {
+        if (wait10 == null) {
+            wait10 = new WebDriverWait(driver, Duration.ofSeconds(10));
+        }
+        return wait10;
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 }
 
 
