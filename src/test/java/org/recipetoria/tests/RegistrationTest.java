@@ -8,7 +8,7 @@ import org.recipetoria.pages.StartPage;
 import org.testng.annotations.Test;
 
 public class RegistrationTest extends TestBase {
-    @Test
+    @Test(groups = {"func-test"})
     public void registrationNewUser() {
 
         StartPage startPage = new StartPage(getDriver())
