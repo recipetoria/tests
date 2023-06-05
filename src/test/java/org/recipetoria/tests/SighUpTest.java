@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class SighUpTest extends TestBase {
     SignUpPage signUpPage;
-    @Test(groups = {"func-test"})
+    @Test
     public void registrationNewUser() {
         signUpPage = new SignUpPage(getDriver());
 
