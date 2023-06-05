@@ -5,8 +5,6 @@ import org.recipetoria.pages.SignUpPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
-
 public class SighUpTest extends TestBase {
     SignUpPage signUpPage;
     @Test
@@ -16,6 +14,8 @@ public class SighUpTest extends TestBase {
         signUpPage.setGetStartedBtn();
         String welcome = signUpPage.setGetWelcomeText();
         Assert.assertEquals(welcome, "Welcome to Reciptoria!");
+
+        Assert.assertEquals("Welcome to Reciptoria!", "Welcome to User!", "True doesn't equel to false");
 
 //        WebElement buttonLogIn = getDriver().findElement(By.xpath("//a[text() = 'Log in']"));
 //        buttonLogIn.click();
