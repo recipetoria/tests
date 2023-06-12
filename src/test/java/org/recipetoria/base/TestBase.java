@@ -60,6 +60,7 @@ public class TestBase {
     public void screenshotAndDeleteCookies(ITestResult testResult) throws IOException {
             //Deleting cookies
         driver.manage().deleteAllCookies();
+        driver.quit();
     }
 
     @AfterSuite

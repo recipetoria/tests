@@ -1,0 +1,3 @@
+Nickname | email@gmail.com | password123 | password123
+Nickname2 | email2@gmail.com | password1232 | password1232
+Nickname3 | email3@gmail.com | password1233 | password1233
