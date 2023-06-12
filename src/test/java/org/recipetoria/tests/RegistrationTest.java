@@ -5,11 +5,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.recipetoria.base.TestBase;
 import org.recipetoria.pages.RegistrationPage;
 import org.recipetoria.pages.StartPage;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class RegistrationTest extends TestBase {
-    @Test
-    public void registrationNewUser() {
+    @DataProvider(name = "validData")
+    public Object[][] providerValidData() {
+        return new Object[][]
+                {
+                        {"azatbay", "azatbay@gmail.com", "123123", "123123"}
+                };
+    }
+
+    @Test(dataProvider = "validData")
+    public void registrationNewUser(String nickName, String email, String password, String repeatPassword) {
 
         StartPage startPage = new StartPage(getDriver())
                 .clickButtonGetStarted();
@@ -17,10 +26,10 @@ public class RegistrationTest extends TestBase {
         getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
 
         RegistrationPage registrationPage = new RegistrationPage(getDriver())
-                .inputNickname("azatbay")
-                .inputEmail("azatbay@gmail.com")
-                .inputPassword("123123123")
-                .inputRepeatPassword("123123123")
+                .inputNickname(nickName)
+                .inputEmail(email)
+                .inputPassword(password)
+                .inputRepeatPassword(repeatPassword)
                 .clickCheckboxAgree()
                 .clickButtonGetStarted();
 

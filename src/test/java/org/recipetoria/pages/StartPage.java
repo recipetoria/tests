@@ -13,4 +13,6 @@ public class StartPage extends BasePage{
         getDriver().findElement(By.xpath("//a[text()='Get started']")).click();
         return this;
     }
+
+
 }
