@@ -14,5 +14,15 @@ public class StartPage extends BasePage{
         return this;
     }
 
+    public StartPage avatarBtn() {
+        getDriver().findElement(By.cssSelector(".default-avatar")).click();
+        return this;
+    }
+
+    public StartPage logoutBtn() {
+        getDriver().findElement(By.cssSelector(".profile-menu__btns > button:nth-of-type(3)")).click();
+        return this;
+    }
 
 }
+

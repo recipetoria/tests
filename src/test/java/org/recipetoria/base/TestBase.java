@@ -61,8 +61,9 @@ public class TestBase {
 
     @AfterMethod
     public void screenshotAndDeleteCookies(ITestResult testResult) throws IOException {
-            //Deleting cookies
+        //Deleting cookies
         driver.manage().deleteAllCookies();
+        //driver.quit();
     }
 
     @AfterSuite
@@ -102,6 +103,3 @@ public class TestBase {
         return driver;
     }
 }
-
-
-
