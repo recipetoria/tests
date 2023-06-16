@@ -43,6 +43,16 @@ public class RegistrationTest extends TestBase {
 
     @Test(dataProvider = "registrationData")
     public void registrationNewUser(String nickName, String email, String password, String repeatPassword) throws InterruptedException {
+    @DataProvider(name = "validData")
+    public Object[][] providerValidData() {
+        return new Object[][]
+                {
+                        {"azatbay", "azatbay@gmail.com", "123123", "123123"}
+                };
+    }
+
+    @Test(dataProvider = "validData")
+    public void registrationNewUser(String nickName, String email, String password, String repeatPassword) {
 
         StartPage startPage = new StartPage(getDriver())
                 .clickButtonGetStarted();
