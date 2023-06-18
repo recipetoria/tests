@@ -38,7 +38,7 @@ public class TestBase {
         } else if (BROWSER.equals("Chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless=new");
-            driver = new ChromeDriver(options=options);
+            driver = new ChromeDriver(options);
         } else if (BROWSER.equals("IE")) {
             driver = new EdgeDriver();
         } else {
@@ -56,7 +56,7 @@ public class TestBase {
     @BeforeMethod()
     public void loadBaseUrl(Method method) {
         driver.get(envConfig.getProperty("baseUrl"));
-
+        System.out.println("address = " + envConfig.getProperty("baseUrl"));
     }
 
     @AfterMethod
