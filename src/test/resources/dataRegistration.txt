@@ -1,3 +1,117 @@
-Name2 | email22@gmail.com | password1232 | password1232
-Name3 | email33@gmail.com | password1233 | password1233
-Name1 | email11@gmail.com | password123 | password123
+USER | user@gmail.-.com | Pasпар1234567890
+USER | user@gmail.com | password
+USER | user@gmail.ru | Passwor*?/\|<>,.
+USER | user@gmail.Koom user@gmail.COM | Pass word
+USER | u@gmail.com | PASSWORD
+Username | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | PASSWORD
+USER | USER@gmail.com | Passwor ()[]{};:'
+Username | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | Passwor*?/\|<>,.
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | u@gmail.com | Passwor*?/\|<>,.
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.com | Passwor!"@#$%^_&
+USER | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | Passwor!"@#$%^_&
+Username | user@GMAIL.com | Passwor*?/\|<>,.
+Username | user@g.com | Password
+Username | user@gmail.-.com | Pass word
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | Pass word
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.com | PASSWORD
+Username | user@Gmail.com | Password
+Username | user@gmail.123 | Passwor ()[]{};:'
+Username | USER@gmail.com | Passwor!"@#$%^_&
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.-.com | Password
+Username | user@gmail.com | PASSWORD
+Username | user@gmail.com | Pass word
+USER | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | Pasпар1234567890
+USER | user@g.com | Passwor!"@#$%^_&
+USER | user@Gmail.com | PASSWORD
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@g.com | Password
+Username | u@gmail.com | Password
+Username | user@gmail.com | Pasпар1234567890
+USER | user@gmail.com | Pass word
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.com | Password
+Username | user@gmail.Koom user@gmail.COM | Passwor*?/\|<>,.
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | u@gmail.com | Pass word
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.ru | Pasпар1234567890
+USER | user@g.com | Passwor*?/\|<>,.
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | Password
+Username | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | Passwor!"@#$%^_&
+USER | user@GMAIL.com | Pasпар1234567890
+USER | user@gmail.-.com | Password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | Passwor ()[]{};:'
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.Koom user@gmail.COM | password
+Username | user@gmail.ru | password
+USER | user@gmail.-.com | Passwor*?/\|<>,.
+USER | user@gmail.Koom user@gmail.COM | Password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@Gmail.com | Password
+USER | user@gmail.123 | Passwor!"@#$%^_&
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@GMAIL.com | Pass word
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.com | Passwor*?/\|<>,.
+Username | user@gmail.Koom user@gmail.COM | Pasпар1234567890
+Username | user@g.com | password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | USER@gmail.com | PASSWORD
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | Pass word
+USER | user@GMAIL.com | password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.123 | Pass word
+USER | u@gmail.com | password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | u@gmail.com | Pasпар1234567890
+USER | user@Gmail.com | Passwor!"@#$%^_&
+USER | user@g.com | Passwor ()[]{};:'
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.ru | Pass word
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | Pasпар1234567890
+USER | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | password
+Username | u@gmail.com | Password
+Username | USER@gmail.com | Password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@GMAIL.com | PASSWORD
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.Koom user@gmail.COM | Passwor!"@#$%^_&
+USER | user@gmail.ru | Password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.ru | Password
+USER | user@gmail.-.com | PASSWORD
+Username | user@GMAIL.com | Password
+USER | u@gmail.com | Passwor ()[]{};:'
+Username | user@g.com | Pass word
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.123 | Password
+USER | user@gmail.com | Password
+USER | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@Gmail.com | Passwor*?/\|<>,.
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@GMAIL.com | Password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | Passwor*?/\|<>,.
+USER | user@gmail.Koom user@gmail.COM | PASSWORD
+Username | user@gmail.com | Passwor ()[]{};:'
+USER | USER@gmail.com | Password
+USER | user@gmail.com | Password
+Username | user@Gmail.com | Passwor ()[]{};:'
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.-.com | Passwor!"@#$%^_&
+USER | user@gmail.-.com | Passwor ()[]{};:'
+USER | user@gmail.123 | Pasпар1234567890
+USER | user@gmail.123 | Passwor*?/\|<>,.
+USER | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | PASSWORD
+Username | user@gmail.ru | Passwor ()[]{};:'
+USER | u@gmail.com | Passwor!"@#$%^_&
+Username | USER@gmail.com | Pass word
+USER | user@gmail.-.com | password
+Username | user@Gmail.com | password
+USER | USER@gmail.com | password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@Gmail.com | Pasпар1234567890
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | USER@gmail.com | Pasпар1234567890
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.com | Password
+Username | user@gmail.Koom user@gmail.COM | Passwor ()[]{};:'
+USER | user@gmail.com | Passwor ()[]{};:'
+USER | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | Passwor ()[]{};:'
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.Koom user@gmail.COM | Password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.com | password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.com | Passwor!"@#$%^_&
+Username | user@GMAIL.com | Passwor!"@#$%^_&
+USER | user@gmail.com | Passwor*?/\|<>,.
+USER | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | Password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | USER@gmail.com | Passwor*?/\|<>,.
+Username | user@g.com | Pasпар1234567890
+Username | user@gmail.com | Pasпар1234567890
+Username | user@gmail.123 | password
+Username | user@gmail.ru | Passwor!"@#$%^_&
+USER | user@Gmail.com | Pass word
+USER | user@gmail.123 | PASSWORD
+USER | user@gmail.123 | Password
+USER | user@g.com | PASSWORD
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@G.-mailaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1234567890.com | Password
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | user@gmail.ru | PASSWORD
+USER | user@GMAIL.com | Passwor ()[]{};:'
+Uю1*?/\|<>,.()[]{};:'!"@#$%^_& | USERuseruseruseruseruseruseruseuseruseruseruseruse1234567890.-_+@gmail.com | Password

@@ -28,21 +28,20 @@ public class RegistrationTest extends TestBase {
             }
         }
 
-        Object[][] data = new Object[linesList.size()][4];
+        Object[][] data = new Object[linesList.size()][3];
 
         for (int i = 0; i < linesList.size(); i++) {
             String[] line = linesList.get(i);
             data[i][0] = line[0];
             data[i][1] = line[1];
             data[i][2] = line[2];
-            data[i][3] = line[3];
         }
 
         return data;
     }
 
     @Test(dataProvider = "registrationData")
-    public void registrationNewUser(String nickName, String email, String password, String repeatPassword) throws InterruptedException {
+    public void registrationNewUser(String nickName, String email, String password) throws InterruptedException {
 
         StartPage startPage = new StartPage(getDriver())
                 .clickButtonGetStarted();
@@ -53,7 +52,7 @@ public class RegistrationTest extends TestBase {
                 .inputNickname(nickName)
                 .inputEmail(email)
                 .inputPassword(password)
-                .inputRepeatPassword(repeatPassword)
+                .inputRepeatPassword(password)
                 .clickCheckboxAgree()
                 .clickButtonGetStarted();
 
