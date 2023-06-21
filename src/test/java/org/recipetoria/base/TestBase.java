@@ -26,7 +26,7 @@ public class TestBase {
     private WebDriverWait wait5;
     private WebDriverWait wait10;
 
-    public static final String ENV = System.getProperty("env", "Production");
+    public static final String ENV = System.getProperty("env", "qa");
     public static final String BROWSER = System.getProperty("browser", "Chrome");
 
     //Automation suite setup method to configure and instantiate a particular browser
@@ -37,7 +37,7 @@ public class TestBase {
             driver = new FirefoxDriver();
         } else if (BROWSER.equals("Chrome")) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new");
+            //options.addArguments("--headless=new");
             driver = new ChromeDriver(options);
         } else if (BROWSER.equals("IE")) {
             driver = new EdgeDriver();
