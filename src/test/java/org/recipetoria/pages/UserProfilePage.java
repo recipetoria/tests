@@ -121,6 +121,7 @@ public class UserProfilePage {
     public void clickProfileIconBtn(){
         profileIconBtn.click();
     }
+
     public void clickEnterToProfileBtn(){
         enterToProfileBtn.click();
     }

@@ -1,6 +1,7 @@
 package org.recipetoria.base;
 
 import com.github.javafaker.Faker;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,6 +13,8 @@ import java.io.IOException;
 
 
 public class utils extends TestBase {
+public class utils {
+
     Faker faker = new Faker();
     public String generatePassword(int minimumLength, int maximumLength, boolean includeUppercase, boolean includeSpecial) {
         if (includeSpecial) {

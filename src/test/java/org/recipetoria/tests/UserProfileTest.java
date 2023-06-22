@@ -2,6 +2,7 @@ package org.recipetoria.tests;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.JavascriptExecutor;
+
 import org.recipetoria.base.TestBase;
 import org.recipetoria.base.utils;
 import org.recipetoria.pages.UserProfilePage;
@@ -14,6 +15,7 @@ public class UserProfileTest extends TestBase {
     utils utilsInstance = new utils();
     String nickname = faker.name().username();
     String newNickmame = faker.name().username();
+
     String email = faker.internet().emailAddress();
     String password = utilsInstance.generatePassword(6, 10, true, true);
     String newPassword = utilsInstance.generatePassword(6, 10, false, true);
@@ -84,6 +86,5 @@ public class UserProfileTest extends TestBase {
     }
     @Test
     public void deleteAccountTest(){
-
     }
 }
