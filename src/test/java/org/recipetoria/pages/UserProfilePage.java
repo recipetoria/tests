@@ -17,7 +17,7 @@ public class UserProfilePage {
     WebElement repeatPassword;
     @FindBy(id = "email")
     WebElement emailInput;
-    @FindBy(css = ".profile-btn-popup__btn .avatar__image_default")
+    @FindBy(css = ".avatar__image_default")
     WebElement profileIconBtn;
     @FindBy(css = ".submit-btn")
     WebElement getStartedBtn;
@@ -45,8 +45,8 @@ public class UserProfilePage {
     WebElement addProfilePicDragAndDropBtn;
     @FindBy(css = ".general__caption")
     WebElement imageAllowedTxt;
-    @FindBy(css = "#nickname")
-    WebElement NicknameInput;
+    @FindBy(css = "input#nickname")
+    WebElement newNicknameInput;
     @FindBy(css = ".caption")
     WebElement nameLabelTxt;
     @FindBy(css = ".profile-general__submit-btn")
@@ -120,5 +120,36 @@ public class UserProfilePage {
     }
     public void clickProfileIconBtn(){
         profileIconBtn.click();
+    }
+    public void clickEnterToProfileBtn(){
+        enterToProfileBtn.click();
+    }
+    public String checkProfileTxt(){
+        return profileTxt.getText();
+    }
+    public void clickMenuGeneralBtn(){
+        menuGeneralBtn.click();
+    }
+    public void clickGeneralReplacePicBtn(){
+        generalReplacePicBtn.click();
+    }
+
+    public String checkAddProfilePicTxt(){
+        return addProfilePicTxt.getText();
+    }
+    public void clickAddProfilePicDragAndDropBtn(){
+        addProfilePicDragAndDropBtn.click();
+    }
+    public void clickAddProfilePicUploadPicBtn(){
+        addProfilePicUploadPicBtn.click();
+    }
+    public void clickAddProfilePicCancelBtn(){
+        addProfilePicCancelBtn.click();
+    }
+    public void typeNewNickname(String nickname){
+        newNicknameInput.sendKeys(nickname);
+    }
+    public void clickSaveChangesBtn(){
+        saveChangesBtn.click();
     }
 }
