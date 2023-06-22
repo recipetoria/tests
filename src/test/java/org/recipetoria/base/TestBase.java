@@ -68,7 +68,8 @@ public class TestBase {
 
     @AfterSuite
     public void suiteTearDown() {
-        driver.quit();
+
+        //driver.quit();
     }
 
     public WebDriverWait getWait1() {
