@@ -9,7 +9,7 @@ public class SignUpPage {
 
     private WebDriver driver;
 
-    @FindBy(xpath="//a[text() = 'Get started']")
+    @FindBy(css="//a[text() = 'Get started']")
     private WebElement getStartedBtn;
 
     @FindBy(css = ".sign-page__header")

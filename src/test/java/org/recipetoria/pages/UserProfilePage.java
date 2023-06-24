@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class UserProfilePage {
     private WebDriver driver;
-    @FindBy(css = ".orange-btn")
+    @FindBy(linkText = "Get started")
     WebElement StartedBtn;
     @FindBy(id = "nickname")
     WebElement nicknameInput;
@@ -152,5 +152,50 @@ public class UserProfilePage {
     }
     public void clickSaveChangesBtn(){
         saveChangesBtn.click();
+    }
+    public void clickChangePasswordMenuBtn(){
+        changePasswordMenuBtn.click();
+    }
+    public void typeOldPasswordInput(String oldPassword){
+        oldPasswordInput.sendKeys(oldPassword);
+    }
+    public void typeNewPasswordInput(String newPassword){
+        newPasswordInput.sendKeys(newPassword);
+    }
+    public void typeNewPasswordRepeatInput(String newPassword){
+        newPasswordRepeatInput.sendKeys(newPassword);
+    }
+    public void clickSaveNewPasswordBtn(){
+        saveNewPasswordBtn.click();
+    }
+    public void clickLogoutBtn(){
+        logoutBtn.click();
+    }
+    public String checkLogoutMsg(){
+        return logoutMsg.getText();
+    }
+    public void clicklogoutCancelBtn(){
+        logoutCancelBtn.click();
+    }
+    public void clicklogoutOKBtn(){
+        logoutOKBtn.click();
+    }
+    public Boolean checkLoginBtn(){
+        return loginBtn.isDisplayed();
+    }
+    public void clickloginBtn(){
+        loginBtn.click();
+    }
+    public void clickdeleteAccBtn(){
+        deleteAccBtn.click();
+    }
+    public String checkdeleteAccText(){
+        return deleteAccText.getText();
+    }
+    public void clickdeleteAccCancelBtn(){
+        deleteAccCancelBtn.click();
+    }
+    public void clickdeleteAccOkBtn(){
+        deleteAccOkBtn.click();
     }
 }

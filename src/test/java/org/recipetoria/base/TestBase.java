@@ -30,7 +30,7 @@ public class TestBase {
     public static final String BROWSER = System.getProperty("browser", "Chrome");
 
     //Automation suite setup method to configure and instantiate a particular browser
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void suiteSetup() throws IOException {
 
         if (BROWSER.equals("Firefox")) {
@@ -53,20 +53,20 @@ public class TestBase {
         envConfig.load(configFile);
 
     }
-    @BeforeMethod()
+    @BeforeMethod(alwaysRun = true)
     public void loadBaseUrl(Method method) {
         driver.get(envConfig.getProperty("baseUrl"));
         System.out.println("address = " + envConfig.getProperty("baseUrl"));
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void screenshotAndDeleteCookies(ITestResult testResult) throws IOException {
         //Deleting cookies
         driver.manage().deleteAllCookies();
         //driver.quit();
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void suiteTearDown() {
 
         //driver.quit();

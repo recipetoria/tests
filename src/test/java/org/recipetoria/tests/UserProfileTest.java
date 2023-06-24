@@ -2,7 +2,6 @@ package org.recipetoria.tests;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.JavascriptExecutor;
-
 import org.recipetoria.base.TestBase;
 import org.recipetoria.base.utils;
 import org.recipetoria.pages.UserProfilePage;
@@ -17,18 +16,20 @@ public class UserProfileTest extends TestBase {
     String newNickmame = faker.name().username();
 
     String email = faker.internet().emailAddress();
-    String password = utilsInstance.generatePassword(6, 10, true, true);
-    String newPassword = utilsInstance.generatePassword(6, 10, false, true);
+    String password;
+    String newPassword;
 
-    String localStorageData;
+    String localStorageData = utils.readLocalStorageFile("src/test/resources/localStorageData.json");
 
-    @Test
+    @Test(groups = {"regression"})
     public void sighUpTest() throws InterruptedException {
         userProfilePage = new UserProfilePage(getDriver());
         userProfilePage.clickStartedBtn();
         nickname = faker.name().username();
         userProfilePage.typeNickname(nickname);
         userProfilePage.typeEmail(email);
+
+        password = utilsInstance.generatePassword(6, 10, true, true);
         userProfilePage.typePassword(password);
         userProfilePage.typeRepeatPassword(password);
         userProfilePage.checkAgreeChc();
@@ -43,9 +44,10 @@ public class UserProfileTest extends TestBase {
         utils.saveLocalStorageDataAsJson(localStorageData, "src/test/resources/localStorageData.json");
     }
 
-    @Test
+    @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
     public void changeNameTest() throws InterruptedException {
         localStorageData = utils.readLocalStorageFile("src/test/resources/localStorageData.json");
+
         JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.localStorage.clear();");
         jsExecutor.executeScript("window.localStorage.setItem('authRegister', arguments[0]);", localStorageData);
@@ -73,18 +75,76 @@ public class UserProfileTest extends TestBase {
 
         userProfilePage.typeNewNickname(newNickmame);
 
+        userProfilePage.clickSaveChangesBtn();
+
         //add assertion that name was changed
 
     }
-    @Test
+
+    @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
     public void changePasswordTest(){
+        JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
+        jsExecutor.executeScript("window.localStorage.clear();");
+        jsExecutor.executeScript("window.localStorage.setItem('authRegister', arguments[0]);", localStorageData);
 
+        userProfilePage = new UserProfilePage(getDriver());
+        getDriver().navigate().refresh();
+
+        userProfilePage.clickProfileIconBtn();
+        userProfilePage.clickEnterToProfileBtn();
+
+        userProfilePage.clickChangePasswordMenuBtn();
+        userProfilePage.typeOldPasswordInput(password);
+
+        newPassword = utilsInstance.generatePassword(6, 10, false, true);
+        userProfilePage.typeNewPasswordInput(newPassword);
+        userProfilePage.typeNewPasswordRepeatInput(newPassword);
+        userProfilePage.clickSaveNewPasswordBtn();
+        //add assertion that password was changed
     }
-    @Test
+    @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
     public void logoutLogInTest(){
+        JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
+        jsExecutor.executeScript("window.localStorage.clear();");
+        jsExecutor.executeScript("window.localStorage.setItem('authRegister', arguments[0]);", localStorageData);
 
+        userProfilePage = new UserProfilePage(getDriver());
+        getDriver().navigate().refresh();
+
+        userProfilePage.clickProfileIconBtn();
+        userProfilePage.clickEnterToProfileBtn();
+
+        userProfilePage.clickLogoutBtn();
+
+        Assert.assertEquals(userProfilePage.checkLogoutMsg(), "Are you sure you want to log out?");
+
+        userProfilePage.clicklogoutCancelBtn();
+        userProfilePage.clickLogoutBtn();
+        userProfilePage.clicklogoutOKBtn();
+
+        Assert.assertTrue(userProfilePage.checkLoginBtn(), "Logout was successful");
+        userProfilePage.clickloginBtn();
     }
-    @Test
+    @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
     public void deleteAccountTest(){
+        JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
+        jsExecutor.executeScript("window.localStorage.clear();");
+        jsExecutor.executeScript("window.localStorage.setItem('authRegister', arguments[0]);", localStorageData);
+
+        userProfilePage = new UserProfilePage(getDriver());
+        getDriver().navigate().refresh();
+
+        userProfilePage.clickProfileIconBtn();
+        userProfilePage.clickEnterToProfileBtn();
+
+        userProfilePage.clickdeleteAccBtn();
+
+        Assert.assertEquals(userProfilePage.checkdeleteAccText(), "Are you sure you want to delete your account?");
+
+        userProfilePage.clickdeleteAccCancelBtn();
+        userProfilePage.clickdeleteAccBtn();
+        userProfilePage.clickdeleteAccOkBtn();
+        //add assertion user acc was deleted msg
+        Assert.assertTrue(userProfilePage.checkLoginBtn(), "Account was deleted");
     }
 }
