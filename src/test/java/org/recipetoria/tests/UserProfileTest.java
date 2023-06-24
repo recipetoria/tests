@@ -6,6 +6,7 @@ import org.recipetoria.base.TestBase;
 import org.recipetoria.base.utils;
 import org.recipetoria.pages.UserProfilePage;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class UserProfileTest extends TestBase {
@@ -14,7 +15,6 @@ public class UserProfileTest extends TestBase {
     utils utilsInstance = new utils();
     String nickname = faker.name().username();
     String newNickmame = faker.name().username();
-
     String email = faker.internet().emailAddress();
     String password;
     String newPassword;
