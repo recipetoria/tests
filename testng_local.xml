@@ -2,6 +2,7 @@
 
 <suite name="Regression test suite" verbose="1">
     <test name="Regression">
+        <parameter name="baseURL" value="http://localhost:3000/"/>
         <groups>
             <run>
                 <include name="regression"/>

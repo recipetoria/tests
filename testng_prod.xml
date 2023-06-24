@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression test suite" verbose="1">
+    <test name="Regression">
+        <parameter name="baseURL" value="http://209.38.198.69:3000/"/>
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="org.recipetoria.tests.RegistrationTest"/>
+            <class name="org.recipetoria.tests.SighUpTest"/>
+            <class name="org.recipetoria.tests.UserProfileTest"/>
+        </classes>
+    </test>
+</suite>

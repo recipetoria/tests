@@ -18,7 +18,6 @@ public class UserProfileTest extends TestBase {
     String email = faker.internet().emailAddress();
     String password;
     String newPassword;
-
     String localStorageData = utils.readLocalStorageFile("src/test/resources/localStorageData.json");
 
     @Test(groups = {"regression"})
@@ -34,7 +33,7 @@ public class UserProfileTest extends TestBase {
         userProfilePage.typeRepeatPassword(password);
         userProfilePage.checkAgreeChc();
         userProfilePage.clickGetStartedBtn();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
         Assert.assertTrue(userProfilePage.checkShoppingListBtn(), "the user haven't been created");
 
@@ -81,8 +80,8 @@ public class UserProfileTest extends TestBase {
 
     }
 
-    @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
-    public void changePasswordTest(){
+    @Test(dependsOnMethods = {"changeNameTest"}, groups = {"regression"})
+    public void changePasswordTest() throws InterruptedException {
         JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.localStorage.clear();");
         jsExecutor.executeScript("window.localStorage.setItem('authRegister', arguments[0]);", localStorageData);
@@ -100,10 +99,11 @@ public class UserProfileTest extends TestBase {
         userProfilePage.typeNewPasswordInput(newPassword);
         userProfilePage.typeNewPasswordRepeatInput(newPassword);
         userProfilePage.clickSaveNewPasswordBtn();
+        System.out.println("New password = " + newPassword);
         //add assertion that password was changed
     }
-    @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
-    public void logoutLogInTest(){
+    @Test(dependsOnMethods = {"changePasswordTest"}, groups = {"regression"})
+    public void logoutLogInTest() throws InterruptedException {
         JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.localStorage.clear();");
         jsExecutor.executeScript("window.localStorage.setItem('authRegister', arguments[0]);", localStorageData);
@@ -125,8 +125,8 @@ public class UserProfileTest extends TestBase {
         Assert.assertTrue(userProfilePage.checkLoginBtn(), "Logout was successful");
         userProfilePage.clickloginBtn();
     }
-    @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
-    public void deleteAccountTest(){
+    @Test(dependsOnMethods = {"logoutLogInTest"}, groups = {"regression"})
+    public void deleteAccountTest() throws InterruptedException {
         JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.localStorage.clear();");
         jsExecutor.executeScript("window.localStorage.setItem('authRegister', arguments[0]);", localStorageData);
@@ -145,6 +145,7 @@ public class UserProfileTest extends TestBase {
         userProfilePage.clickdeleteAccBtn();
         userProfilePage.clickdeleteAccOkBtn();
         //add assertion user acc was deleted msg
+        Thread.sleep(2000);
         Assert.assertTrue(userProfilePage.checkLoginBtn(), "Account was deleted");
     }
 }

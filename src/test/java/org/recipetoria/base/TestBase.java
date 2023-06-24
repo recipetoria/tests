@@ -7,10 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.io.*;
 import java.lang.reflect.Method;
@@ -21,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
     private static WebDriver driver;
     public static Properties envConfig;
+    private static String baseURL;
     private WebDriverWait wait1;
     private WebDriverWait wait2;
     private WebDriverWait wait5;
@@ -32,12 +30,11 @@ public class TestBase {
     //Automation suite setup method to configure and instantiate a particular browser
     @BeforeSuite(alwaysRun = true)
     public void suiteSetup() throws IOException {
-
         if (BROWSER.equals("Firefox")) {
             driver = new FirefoxDriver();
         } else if (BROWSER.equals("Chrome")) {
             ChromeOptions options = new ChromeOptions();
-            //options.addArguments("--headless=new");
+            options.addArguments("--headless=new");
             driver = new ChromeDriver(options);
         } else if (BROWSER.equals("IE")) {
             driver = new EdgeDriver();
@@ -47,21 +44,21 @@ public class TestBase {
 
         driver.manage().window().maximize();
 
-        InputStream configFile = new FileInputStream(System.getProperty("user.dir") +
-                "\\src\\test\\java\\org\\recipetoria\\config\\" + ENV + ".properties");
-        envConfig = new Properties();
-        envConfig.load(configFile);
-
+//        InputStream configFile = new FileInputStream(System.getProperty("user.dir") +
+//                "\\src\\test\\java\\org\\recipetoria\\config\\" + ENV + ".properties");
+//        envConfig = new Properties();
+//        envConfig.load(configFile);
     }
     @BeforeMethod(alwaysRun = true)
-    public void loadBaseUrl(Method method) {
-        driver.get(envConfig.getProperty("baseUrl"));
-        System.out.println("address = " + envConfig.getProperty("baseUrl"));
+    @Parameters("baseURL")
+    public void loadBaseUrl(String baseURL) {
+        TestBase.baseURL = baseURL;
+        driver.get(baseURL);
+        System.out.println("baseUrl  - " + baseURL);
     }
 
     @AfterMethod(alwaysRun = true)
     public void screenshotAndDeleteCookies(ITestResult testResult) throws IOException {
-        //Deleting cookies
         driver.manage().deleteAllCookies();
         //driver.quit();
     }
@@ -69,7 +66,7 @@ public class TestBase {
     @AfterSuite(alwaysRun = true)
     public void suiteTearDown() {
 
-        //driver.quit();
+        driver.quit();
     }
 
     public WebDriverWait getWait1() {
