@@ -42,7 +42,6 @@ public class TestBase {
         }
 
         driver.manage().window().maximize();
-
     }
     @BeforeMethod(alwaysRun = true)
     @Parameters("baseURL")
