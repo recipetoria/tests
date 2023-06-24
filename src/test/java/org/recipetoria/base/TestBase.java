@@ -33,7 +33,7 @@ public class TestBase {
             driver = new FirefoxDriver();
         } else if (BROWSER.equals("Chrome")) {
             ChromeOptions options = new ChromeOptions();
-            //options.addArguments("--headless=new");
+            options.addArguments("--headless=new");
             driver = new ChromeDriver(options);
         } else if (BROWSER.equals("IE")) {
             driver = new EdgeDriver();
