@@ -13,7 +13,6 @@ import java.io.IOException;
 
 
 public class utils extends TestBase {
-public class utils {
 
     Faker faker = new Faker();
     public String generatePassword(int minimumLength, int maximumLength, boolean includeUppercase, boolean includeSpecial) {
