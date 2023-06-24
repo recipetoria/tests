@@ -24,7 +24,6 @@ public class TestBase {
     private WebDriverWait wait5;
     private WebDriverWait wait10;
 
-    public static final String ENV = System.getProperty("env", "qa");
     public static final String BROWSER = System.getProperty("browser", "Chrome");
 
     //Automation suite setup method to configure and instantiate a particular browser
@@ -34,7 +33,7 @@ public class TestBase {
             driver = new FirefoxDriver();
         } else if (BROWSER.equals("Chrome")) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new");
+            //options.addArguments("--headless=new");
             driver = new ChromeDriver(options);
         } else if (BROWSER.equals("IE")) {
             driver = new EdgeDriver();
@@ -44,10 +43,6 @@ public class TestBase {
 
         driver.manage().window().maximize();
 
-//        InputStream configFile = new FileInputStream(System.getProperty("user.dir") +
-//                "\\src\\test\\java\\org\\recipetoria\\config\\" + ENV + ".properties");
-//        envConfig = new Properties();
-//        envConfig.load(configFile);
     }
     @BeforeMethod(alwaysRun = true)
     @Parameters("baseURL")
@@ -60,7 +55,6 @@ public class TestBase {
     @AfterMethod(alwaysRun = true)
     public void screenshotAndDeleteCookies(ITestResult testResult) throws IOException {
         driver.manage().deleteAllCookies();
-        //driver.quit();
     }
 
     @AfterSuite(alwaysRun = true)
