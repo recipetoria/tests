@@ -14,6 +14,7 @@ public class UserProfileTest extends TestBase {
     utils utilsInstance = new utils();
     String nickname = faker.name().username();
     String newNickmame = faker.name().username();
+
     String email = faker.internet().emailAddress();
     String password;
     String newPassword;
@@ -45,6 +46,8 @@ public class UserProfileTest extends TestBase {
 
     @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
     public void changeNameTest() throws InterruptedException {
+        localStorageData = utils.readLocalStorageFile("src/test/resources/localStorageData.json");
+
         JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.localStorage.clear();");
         jsExecutor.executeScript("window.localStorage.setItem('authRegister', arguments[0]);", localStorageData);
@@ -71,11 +74,13 @@ public class UserProfileTest extends TestBase {
         userProfilePage.clickAddProfilePicCancelBtn();
 
         userProfilePage.typeNewNickname(newNickmame);
+
         userProfilePage.clickSaveChangesBtn();
 
         //add assertion that name was changed
 
     }
+
     @Test(dependsOnMethods = {"sighUpTest"}, groups = {"regression"})
     public void changePasswordTest(){
         JavascriptExecutor jsExecutor =(JavascriptExecutor) getDriver();
