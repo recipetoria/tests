@@ -200,7 +200,7 @@ public class UserProfilePage {
     public void clickdeleteAccOkBtn(){
         deleteAccOkBtn.click();
     }
-    public void checkNicknameInTheModalWindow(){
-        nicknameInTheModalWindow.getText();
+    public String checkNicknameInTheModalWindow(){
+        return nicknameInTheModalWindow.getText();
     }
 }
