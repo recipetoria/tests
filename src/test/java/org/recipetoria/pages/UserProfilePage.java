@@ -11,6 +11,8 @@ public class UserProfilePage {
     WebElement StartedBtn;
     @FindBy(id = "nickname")
     WebElement nicknameInput;
+    @FindBy(css = ".profile-modal .data-btn-cross__nick")
+    WebElement nicknameInTheModalWindow;
     @FindBy(id = "password")
     WebElement passwordInput;
     @FindBy(id = "repeatPassword")
@@ -197,5 +199,8 @@ public class UserProfilePage {
     }
     public void clickdeleteAccOkBtn(){
         deleteAccOkBtn.click();
+    }
+    public String checkNicknameInTheModalWindow(){
+        return nicknameInTheModalWindow.getText();
     }
 }

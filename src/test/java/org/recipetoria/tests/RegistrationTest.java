@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.recipetoria.base.TestBase;
 import org.recipetoria.pages.RegistrationPage;
 import org.recipetoria.pages.StartPage;
+import org.recipetoria.pages.UserProfilePage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -56,12 +57,15 @@ public class RegistrationTest extends TestBase {
                 .clickCheckboxAgree()
                 .clickButtonGetStarted();
 
-        getWait1().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[normalize-space()='Start page']")));
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".start-page-top-part .left-container__h2")));
 
-        Assert.assertEquals(getDriver().findElement(By.xpath("//h3[normalize-space()='Start page']")).getText(), "Start page");
+        UserProfilePage userProfilePage = new UserProfilePage(getDriver());
+        userProfilePage.clickProfileIconBtn();
 
-        StartPage startPage1 = new StartPage(getDriver())
-                .avatarBtn()
-                .logoutBtn();
+        Assert.assertEquals(userProfilePage.checkNicknameInTheModalWindow(),nickName);
+
+        StartPage startPage2 = new StartPage(getDriver())
+                .logoutBtn()
+                .okBtnModalWindow();
     }
 }
