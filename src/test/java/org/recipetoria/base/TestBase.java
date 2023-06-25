@@ -35,8 +35,6 @@ public class TestBase {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless=new");
             driver = new ChromeDriver(options);
-        } else if (BROWSER.equals("IE")) {
-            driver = new EdgeDriver();
         } else {
             throw new RuntimeException("Browser type unsupported");
         }
