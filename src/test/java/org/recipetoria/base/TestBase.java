@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -30,13 +31,13 @@ public class TestBase {
     @BeforeSuite(alwaysRun = true)
     public void suiteSetup() throws IOException {
         if (BROWSER.equals("Firefox")) {
-            driver = new FirefoxDriver();
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--headless=new");
+            driver = new FirefoxDriver(options);
         } else if (BROWSER.equals("Chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless=new");
             driver = new ChromeDriver(options);
-        } else if (BROWSER.equals("IE")) {
-            driver = new EdgeDriver();
         } else {
             throw new RuntimeException("Browser type unsupported");
         }

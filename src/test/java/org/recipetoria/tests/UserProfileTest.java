@@ -33,7 +33,7 @@ public class UserProfileTest extends TestBase {
         userProfilePage.typeRepeatPassword(password);
         userProfilePage.checkAgreeChc();
         userProfilePage.clickGetStartedBtn();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         Assert.assertTrue(userProfilePage.checkShoppingListBtn(), "the user haven't been created");
 

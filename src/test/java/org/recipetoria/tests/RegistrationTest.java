@@ -64,8 +64,8 @@ public class RegistrationTest extends TestBase {
 
         Assert.assertEquals(userProfilePage.checkNicknameInTheModalWindow(),nickName);
 
-        StartPage startPage2 = new StartPage(getDriver())
-                .logoutBtn()
-                .okBtnModalWindow();
+//        StartPage startPage2 = new StartPage(getDriver())
+//                .logoutBtn()
+//                .okBtnModalWindow();
     }
 }
