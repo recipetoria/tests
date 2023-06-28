@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.recipetoria.base.TestBase;
+import org.recipetoria.pages.LogInPage;
 import org.recipetoria.pages.RegistrationPage;
 import org.recipetoria.pages.StartPage;
 import org.recipetoria.pages.UserProfilePage;
@@ -44,12 +45,12 @@ public class RegistrationTest extends TestBase {
     @Test(dataProvider = "registrationData")
     public void registrationNewUser(String nickName, String email, String password) throws InterruptedException {
 
-        StartPage startPage = new StartPage(getDriver())
+        new StartPage(getDriver())
                 .clickButtonGetStarted();
 
         getWait5().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
 
-        RegistrationPage registrationPage = new RegistrationPage(getDriver())
+        new RegistrationPage(getDriver())
                 .inputNickname(nickName)
                 .inputEmail(email)
                 .inputPassword(password)
@@ -62,10 +63,14 @@ public class RegistrationTest extends TestBase {
         UserProfilePage userProfilePage = new UserProfilePage(getDriver());
         userProfilePage.clickProfileIconBtn();
 
-        Assert.assertEquals(userProfilePage.checkNicknameInTheModalWindow(),nickName);
+        Assert.assertEquals(userProfilePage.checkNicknameInTheModalWindow(), nickName);
 
-//        StartPage startPage2 = new StartPage(getDriver())
-//                .logoutBtn()
-//                .okBtnModalWindow();
+        userProfilePage.clickEnterToProfileBtn();
+        userProfilePage.clickdeleteAccBtn();
+        userProfilePage.clickdeleteAccOkBtn();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//aside/span[@class='snackbar__text']")));
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//aside/span[@class='snackbar__text']")).getText(), "Your account was deleted");
     }
 }
