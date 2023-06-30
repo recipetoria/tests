@@ -201,6 +201,6 @@ public class UserProfilePage {
         deleteAccOkBtn.click();
     }
     public String checkNicknameInTheModalWindow(){
-        return nicknameInTheModalWindow.getText();
+        return nicknameInTheModalWindow.getAttribute("textContent");
     }
 }
