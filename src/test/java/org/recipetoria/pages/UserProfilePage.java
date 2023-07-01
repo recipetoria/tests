@@ -19,7 +19,7 @@ public class UserProfilePage {
     WebElement repeatPassword;
     @FindBy(id = "email")
     WebElement emailInput;
-    @FindBy(css = ".avatar__image_default")
+    @FindBy(css = "img[alt='avatar']")
     WebElement profileIconBtn;
     @FindBy(css = ".submit-btn")
     WebElement getStartedBtn;
@@ -91,6 +91,8 @@ public class UserProfilePage {
     WebElement deleteAccCancelBtn;
     @FindBy(css = ".delete-account__ok")
     WebElement deleteAccOkBtn;
+    @FindBy(css = ".btn")
+    WebElement addRecipeBtn;
 
     public UserProfilePage(WebDriver driver){
         this.driver = driver;
@@ -155,6 +157,9 @@ public class UserProfilePage {
     public void clickSaveChangesBtn(){
         saveChangesBtn.click();
     }
+    public void clickSighinBtn(){
+        sighInBtn.click();
+    }
     public void clickChangePasswordMenuBtn(){
         changePasswordMenuBtn.click();
     }
@@ -187,6 +192,9 @@ public class UserProfilePage {
     }
     public void clickloginBtn(){
         loginBtn.click();
+    }
+    public Boolean checkAddRecipeBtn(){
+        return addRecipeBtn.isDisplayed();
     }
     public void clickdeleteAccBtn(){
         deleteAccBtn.click();

@@ -1,5 +1,6 @@
 package org.recipetoria.base;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,39 +19,44 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBase {
     private static WebDriver driver;
-    public static Properties envConfig;
-    private static String baseURL;
+    WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
     private WebDriverWait wait1;
     private WebDriverWait wait2;
     private WebDriverWait wait5;
     private WebDriverWait wait10;
 
-    public static final String BROWSER = System.getProperty("browser", "Chrome");
-
     //Automation suite setup method to configure and instantiate a particular browser
     @BeforeSuite(alwaysRun = true)
-    public void suiteSetup() throws IOException {
-        if (BROWSER.equals("Firefox")) {
+    @Parameters({"browserType", "baseURL", "mode"})
+    public void suiteSetup(String browserType, String baseURL, String mode) throws IOException {
+        if (browserType.equalsIgnoreCase("Firefox")) {
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--headless=new");
             driver = new FirefoxDriver(options);
-        } else if (BROWSER.equals("Chrome")) {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new");
-            driver = new ChromeDriver(options);
+        }
+        else if (browserType.equalsIgnoreCase("Chrome")) {
+            if (mode.equalsIgnoreCase("remote")) {
+                driver = wdm.create();
+            } else if (mode.equalsIgnoreCase("local")) {
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions();
+                //options.addArguments("--headless=new");
+                driver = new ChromeDriver(options);
+            }
         } else {
             throw new RuntimeException("Browser type unsupported");
         }
 
         driver.manage().window().maximize();
-    }
-    @BeforeMethod(alwaysRun = true)
-    @Parameters("baseURL")
-    public void loadBaseUrl(String baseURL) {
-        TestBase.baseURL = baseURL;
         driver.get(baseURL);
         System.out.println("baseUrl  - " + baseURL);
     }
+//    @Parameters("baseURL")
+//    public void loadBaseUrl(String baseURL) {
+//        TestBase.baseURL = baseURL;
+//        driver.get(baseURL);
+//        System.out.println("baseUrl  - " + baseURL);
+//    }
 
     @AfterMethod(alwaysRun = true)
     public void screenshotAndDeleteCookies(ITestResult testResult) throws IOException {
