@@ -40,4 +40,15 @@ public class RegistrationPage extends BasePage {
         getDriver().findElement(By.xpath("//input[@value='Get started']")).click();
         return this;
     }
+
+    public RegistrationPage registrationNewUser(String nickName, String email, String password) {
+        new RegistrationPage(getDriver())
+                .inputNickname(nickName)
+                .inputEmail(email)
+                .inputPassword(password)
+                .inputRepeatPassword(password)
+                .clickCheckboxAgree()
+                .clickButtonGetStarted();
+        return this;
+    }
 }
