@@ -3,6 +3,7 @@
 <suite name="Regression test suite" verbose="1">
     <parameter name="browserType" value="Chrome"/>
     <parameter name="baseURL" value="http://localhost:3000/"/>
+    <parameter name="mode" value="local"/>
     <test name="Regression">
         <groups>
             <run>

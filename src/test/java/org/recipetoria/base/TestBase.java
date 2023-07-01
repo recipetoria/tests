@@ -27,19 +27,22 @@ public class TestBase {
 
     //Automation suite setup method to configure and instantiate a particular browser
     @BeforeSuite(alwaysRun = true)
-    @Parameters({"browserType", "baseURL"})
-    public void suiteSetup(String browserType, String baseURL) throws IOException {
+    @Parameters({"browserType", "baseURL", "mode"})
+    public void suiteSetup(String browserType, String baseURL, String mode) throws IOException {
         if (browserType.equalsIgnoreCase("Firefox")) {
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--headless=new");
             driver = new FirefoxDriver(options);
-        } else if (browserType.equalsIgnoreCase("Chrome")) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-            //WebDriverManager.chromedriver().setup();
-            //ChromeOptions options = new ChromeOptions();
-            //options.addArguments("--headless=new");
-            //driver = new ChromeDriver(options);
-            driver = wdm.create();
+        }
+        else if (browserType.equalsIgnoreCase("Chrome")) {
+            if (mode.equalsIgnoreCase("remote")) {
+                driver = wdm.create();
+            } else if (mode.equalsIgnoreCase("local")) {
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions();
+                //options.addArguments("--headless=new");
+                driver = new ChromeDriver(options);
+            }
         } else {
             throw new RuntimeException("Browser type unsupported");
         }
