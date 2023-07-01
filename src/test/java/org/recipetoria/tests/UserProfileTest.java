@@ -100,7 +100,15 @@ public class UserProfileTest extends TestBase {
         userProfilePage.typeNewPasswordRepeatInput(newPassword);
         userProfilePage.clickSaveNewPasswordBtn();
         System.out.println("New password = " + newPassword);
-        //add assertion that password was changed
+        userProfilePage.clickLogoutBtn();
+        userProfilePage.clicklogoutOKBtn();
+        userProfilePage.clickloginBtn();
+        userProfilePage.typeEmail(email);
+        userProfilePage.typeNewPasswordInput(newPassword);
+        userProfilePage.clickSighinBtn();
+
+        Thread.sleep(2000);
+        Assert.assertTrue(userProfilePage.checkAddRecipeBtn(), "password was changed");
     }
     @Test(dependsOnMethods = {"changePasswordTest"}, groups = {"regression"})
     public void logoutLogInTest() throws InterruptedException {
@@ -123,7 +131,6 @@ public class UserProfileTest extends TestBase {
         userProfilePage.clicklogoutOKBtn();
 
         Assert.assertTrue(userProfilePage.checkLoginBtn(), "Logout was successful");
-        userProfilePage.clickloginBtn();
     }
     @Test(dependsOnMethods = {"logoutLogInTest"}, groups = {"regression"})
     public void deleteAccountTest() throws InterruptedException {

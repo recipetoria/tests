@@ -29,12 +29,13 @@ public class TestBase {
 
     //Automation suite setup method to configure and instantiate a particular browser
     @BeforeSuite(alwaysRun = true)
-    public void suiteSetup() throws IOException {
-        if (BROWSER.equals("Firefox")) {
+    @Parameters({"browserType", "baseURL"})
+    public void suiteSetup(String browserType, String baseURL) throws IOException {
+        if (browserType.equalsIgnoreCase("Firefox")) {
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--headless=new");
             driver = new FirefoxDriver(options);
-        } else if (BROWSER.equals("Chrome")) {
+        } else if (browserType.equalsIgnoreCase("Chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless=new");
             driver = new ChromeDriver(options);
@@ -43,14 +44,15 @@ public class TestBase {
         }
 
         driver.manage().window().maximize();
-    }
-    @BeforeMethod(alwaysRun = true)
-    @Parameters("baseURL")
-    public void loadBaseUrl(String baseURL) {
-        TestBase.baseURL = baseURL;
         driver.get(baseURL);
         System.out.println("baseUrl  - " + baseURL);
     }
+//    @Parameters("baseURL")
+//    public void loadBaseUrl(String baseURL) {
+//        TestBase.baseURL = baseURL;
+//        driver.get(baseURL);
+//        System.out.println("baseUrl  - " + baseURL);
+//    }
 
     @AfterMethod(alwaysRun = true)
     public void screenshotAndDeleteCookies(ITestResult testResult) throws IOException {
