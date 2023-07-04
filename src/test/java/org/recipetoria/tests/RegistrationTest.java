@@ -91,80 +91,80 @@ public class RegistrationTest extends TestBase {
 //                "Заполните это поле.");
     }
 
-//    @Test
-//    public void messageMaxValueOfNickname() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .registrationNewUser("useruseruseruseruseruseruseruse", "jorik@gmail.com", "123123");
-//
-//        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a maximum of 30 characters']")).getText(),
-//                "Please enter a maximum of 30 characters");
-//    }
-//
-//    @Test
-//    public void messageMinValueOfNickname() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .registrationNewUser("Us", "jorik@gmail.com", "123123");
-//
-////        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
-////                "Заполните это поле.");
-//    }
-//
-//    @Test
-//    public void messageEmailIsEmpty() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .registrationNewUser("User", "", "123123");
-//
-////        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
-////                "Заполните это поле.");
-//    }
-//
-//    @Test
-//    public void messageIncorrectEmail() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .registrationNewUser("User", "jo ra@gmail.com", "123123");
-//
-//        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a correct e-mail']")).getText(),
-//                "Please enter a correct e-mail");
-//    }
-//
-//    @Test
-//    public void messagePasswordIsEmpty() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .registrationNewUser("User", "jora@gmail.com", "");
-//
-////        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
-////                "Заполните это поле.");
-//    }
+    @Test
+    public void messageMaxValueOfNickname() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .registrationNewUser("useruseruseruseruseruseruseruse", "jorik@gmail.com", "123123");
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a maximum of 30 characters']")).getText(),
+                "Please enter a maximum of 30 characters");
+    }
+
+    @Test
+    public void messageMinValueOfNickname() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .registrationNewUser("Us", "jorik@gmail.com", "123123");
+
+//        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
+//                "Заполните это поле.");
+    }
+
+    @Test
+    public void messageEmailIsEmpty() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .registrationNewUser("User", "", "123123");
+
+//        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
+//                "Заполните это поле.");
+    }
+
+    @Test
+    public void messageIncorrectEmail() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .registrationNewUser("User", "jo ra@gmail.com", "123123");
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a correct e-mail']")).getText(),
+                "Please enter a correct e-mail");
+    }
+
+    @Test
+    public void messagePasswordIsEmpty() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .registrationNewUser("User", "jora@gmail.com", "");
+
+//        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
+//                "Заполните это поле.");
+    }
 
     @Test
     public void messageMaxValueOfPassword() {
@@ -183,88 +183,111 @@ public class RegistrationTest extends TestBase {
                 "Password must be between 3 and 30 characters...");
     }
 
-//    @Test
-//    public void messageMinValueOfPassword() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .registrationNewUser("User", "jora@gmail.com", "123");
-//
-//        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a minimum of 6 characters']")).getText(),
-//                "Please enter a minimum of 6 characters");
-//    }
-//
-//    @Test
-//    public void messageRepeatPasswordIsEmpty() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .inputNickname("User")
-//                .inputEmail("user@gmail.com")
-//                .inputPassword("123123")
-//                .inputRepeatPassword("")
-//                .clickCheckboxAgree()
-//                .clickButtonGetStarted();
-//
-////        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
-////                "Заполните это поле.");
-//    }
-//
-//    @Test
-//    public void messageRepeatPasswordShouldBeEqual() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .inputNickname("User")
-//                .inputEmail("user@gmail.com")
-//                .inputPassword("123123123")
-//                .inputRepeatPassword("123123");
-//
-//        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Password should be equal']")).getText(),
-//                "Password should be equal");
-//    }
-//
-//    @Test
-//    public void messageCheckboxNotClick() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        new RegistrationPage(getDriver())
-//                .inputNickname("User")
-//                .inputEmail("user@gmail.com")
-//                .inputPassword("123123123")
-//                .inputRepeatPassword("123123")
-//                .clickButtonGetStarted();
-//
-////        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
-////                "");
-//    }
-//
-//    @Test
-//    public void clickableOfBtnSignIn() {
-//
-//        new StartPage(getDriver())
-//                .clickButtonGetStarted();
-//
-//        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
-//
-//        Assert.assertEquals(getDriver().findElement(By.xpath("//a[normalize-space()='Sign in']")).getAttribute("href"),
-//                "http://209.38.198.69:3000/sign_in");
-//    }
+    @Test
+    public void messageMinValueOfPassword() {
 
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .registrationNewUser("User", "jora@gmail.com", "123");
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a minimum of 6 characters']")).getText(),
+                "Please enter a minimum of 6 characters");
+    }
+
+    @Test
+    public void messageRepeatPasswordIsEmpty() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .inputNickname("User")
+                .inputEmail("user@gmail.com")
+                .inputPassword("123123")
+                .inputRepeatPassword("")
+                .clickCheckboxAgree()
+                .clickButtonGetStarted();
+
+//        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
+//                "Заполните это поле.");
+    }
+
+    @Test
+    public void messageRepeatPasswordShouldBeEqual() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .inputNickname("User")
+                .inputEmail("user@gmail.com")
+                .inputPassword("123123123")
+                .inputRepeatPassword("123123");
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Password should be equal']")).getText(),
+                "Password should be equal");
+    }
+
+    @Test
+    public void messageCheckboxNotClick() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .inputNickname("User")
+                .inputEmail("user@gmail.com")
+                .inputPassword("123123123")
+                .inputRepeatPassword("123123")
+                .clickButtonGetStarted();
+
+//        Assert.assertEquals(getDriver().findElement(By.xpath("")).getText(),
+//                "");
+    }
+
+    @Test
+    public void clickableOfBtnSignIn() {
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//a[normalize-space()='Sign in']")).getAttribute("href"),
+                "http://209.38.198.69:3000/sign_in");
+    }
+
+    @Test
+    public void messegeEmailAlreadyExist() {
+
+
+        new StartPage(getDriver())
+                .clickButtonGetStarted();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+
+        new RegistrationPage(getDriver())
+                .registrationNewUser("User", "jora@gmail.com", "123");
+
+        // выйти через профиль
+
+        new RegistrationPage(getDriver())
+                .registrationNewUser("User", "jora@gmail.com", "123");
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a minimum of 6 characters']")).getText(),
+                "Please enter a minimum of 6 characters");
+
+        //авторизоваться и удалить профиль
+
+    }
 }
