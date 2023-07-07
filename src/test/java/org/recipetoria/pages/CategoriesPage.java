@@ -69,8 +69,13 @@ public class CategoriesPage extends BasePage {
         return this;
     }
 
-    public CategoriesPage changePhotoOfCategory() {
-        getDriver().findElement(By.xpath("(//button[@type='button'][normalize-space()='Change photo'])[1]")).click();
+    public CategoriesPage clickBtnUploadPictureCategory() {
+        getDriver().findElement(By.xpath("//div[normalize-space()='Upload picture']")).click();
+        return this;
+    }
+
+    public CategoriesPage inputPictureCategory(String filePath) {
+        getDriver().findElement(By.xpath("(//input[@type='file'])[1]")).sendKeys(filePath);
         return this;
     }
 }

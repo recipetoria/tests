@@ -75,11 +75,11 @@ public class RegistrationTest extends TestBase {
 //                "Your account was deleted");
 //    }
 
-    @Test
+    @Test()
     public void messageNicknameIsEmpty() throws InterruptedException {
+
         new StartPage(getDriver())
                 .clickButtonGetStarted();
-
         getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
 
         new RegistrationPage(getDriver())
@@ -269,7 +269,6 @@ public class RegistrationTest extends TestBase {
 
     @Test
     public void messegeEmailAlreadyExist() {
-
 
         new StartPage(getDriver())
                 .clickButtonGetStarted();

@@ -14,6 +14,7 @@ import org.recipetoria.pages.UserProfilePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.time.Duration;
 
 public class CategoriesTest extends TestBase {
@@ -62,7 +63,41 @@ public class CategoriesTest extends TestBase {
         Assert.assertEquals(getDriver().findElement(By.xpath("//h4[text()='RenameTag']")).getText(), "RenameTag");
 
     }
+
     @Test(dependsOnMethods = {"renameCategory"})
+    public void changePhotoOfCategory() throws InterruptedException {
+
+//        new LogInPage(getDriver())
+//                .loginUser("UserTest@gmail.com", "123123");
+//
+//        new CategoriesPage(getDriver())
+//                .openCategoryPage();
+
+        Thread.sleep(1500);
+
+        new Actions(getDriver())
+                .moveToElement(getDriver().findElement(By.xpath("//img[@alt='category']")))
+                .moveToElement(getDriver().findElement(By.xpath("(//*[name()='svg'])[4]")))
+                .click(getDriver().findElement(By.xpath("//button[normalize-space()='Change photo']")))
+                .build()
+                .perform();
+
+        new CategoriesPage(getDriver())
+                .inputPictureCategory("C:\\Users\\User\\Documents\\PET\\tests\\src\\test\\resources\\categoryPict.jpg");
+
+        Thread.sleep(10000);
+
+        new CategoriesPage(getDriver())
+                .openCategoryPage();
+
+        Thread.sleep(2000);
+
+        Assert.assertNotEquals(getDriver().findElement(By.xpath("//img[@alt='category']")).getAttribute("src"),
+                "/static/media/no_photo_categ.8522d87fe489e6581fc7.png");
+
+    }
+
+    @Test(dependsOnMethods = {"changePhotoOfCategory"})
     public void deleteCategory() throws InterruptedException {
 
         Thread.sleep(1500);
@@ -81,16 +116,10 @@ public class CategoriesTest extends TestBase {
                 visibilityOfElementLocated(By.xpath("//span[normalize-space()='The category was deleted']")));
 
         Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='The category was deleted']")).getText(), "The category was deleted");
+
     }
 
-
-//    public void changePhotoOfCategory() {
-//
-//    }
-//
-
-
-    @Test
+    @Test(dependsOnMethods = {"deleteCategory"})
     public void deleteAccountTest() throws InterruptedException {
         UserProfilePage userProfilePage;
 
