@@ -10,9 +10,7 @@ public class CategoriesPage extends BasePage {
     }
 
     public CategoriesPage openCategoryPage() {
-        getWait5().until(ExpectedConditions.
-                visibilityOfElementLocated(By.xpath("//a[text()='Categories']")));
-
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Categories']")));
         getDriver().findElement(By.xpath("//a[text()='Categories']")).click();
         return this;
     }
@@ -56,23 +54,21 @@ public class CategoriesPage extends BasePage {
     }
 
     public CategoriesPage renameCategory(String newName) {
-        getWait2().until(ExpectedConditions.
-                elementToBeClickable(By.xpath("(//button[@type='button'][normalize-space()='Rename category'])[1]")));
-        getDriver().findElement(By.xpath("(//button[@type='button'][normalize-space()='Rename category'])[1]")).click();
-
-        getWait2().until(ExpectedConditions.
-                elementToBeClickable(By.xpath("//input[@id='categoryRename']")));
-        getDriver().findElement(By.xpath("//input[@id='categoryRename']")).sendKeys(newName);
-
+        getDriver().findElement(By.xpath("//div//input[@id='categoryRename']")).sendKeys(newName);
         getDriver().findElement(By.xpath("//button[normalize-space()='Ok']")).click();
         return this;
     }
 
-    public CategoriesPage deleteCategory() {
-        getDriver().findElement(By.xpath("(//button[@type='button'][normalize-space()='Delete category'])[1]")).click();
-
+    public CategoriesPage clickBtnDeleteCategory() {
+        getDriver().findElement(By.xpath("//button[normalize-space()='Delete']")).click();
         return this;
     }
+
+    public CategoriesPage clickBtnCancelDeleteCategory() {
+        getDriver().findElement(By.xpath("//button[normalize-space()='Cancel']")).click();
+        return this;
+    }
+
     public CategoriesPage changePhotoOfCategory() {
         getDriver().findElement(By.xpath("(//button[@type='button'][normalize-space()='Change photo'])[1]")).click();
         return this;
