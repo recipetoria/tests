@@ -1,13 +1,16 @@
 package org.recipetoria.tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.recipetoria.base.TestBase;
+import org.recipetoria.base.utils;
 import org.recipetoria.pages.CategoriesPage;
 import org.recipetoria.pages.LogInPage;
 import org.recipetoria.pages.RegistrationPage;
+import org.recipetoria.pages.UserProfilePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +18,7 @@ import java.time.Duration;
 
 public class CategoriesTest extends TestBase {
 
-//    @Test
+    @Test
     public void creatNewCategory() {
         String name = "TestCategory";
 
@@ -35,14 +38,8 @@ public class CategoriesTest extends TestBase {
 
     }
 
-    @Test
+    @Test(dependsOnMethods = {"creatNewCategory"})
     public void renameCategory() throws InterruptedException {
-
-        new LogInPage(getDriver())
-                .loginUser("UserTest@gmail.com", "123123");
-
-        new CategoriesPage(getDriver())
-                .openCategoryPage();
 
         Thread.sleep(1500);
 
@@ -65,14 +62,8 @@ public class CategoriesTest extends TestBase {
         Assert.assertEquals(getDriver().findElement(By.xpath("//h4[text()='RenameTag']")).getText(), "RenameTag");
 
     }
-    @Test(dependsOnMethods = renameCategory)
+    @Test(dependsOnMethods = {"renameCategory"})
     public void deleteCategory() throws InterruptedException {
-
-        new LogInPage(getDriver())
-                .loginUser("UserTest@gmail.com", "123123");
-
-        new CategoriesPage(getDriver())
-                .openCategoryPage();
 
         Thread.sleep(1500);
 
@@ -99,5 +90,24 @@ public class CategoriesTest extends TestBase {
 //
 
 
-    // Удалить пользователя после тестов
+    @Test
+    public void deleteAccountTest() throws InterruptedException {
+        UserProfilePage userProfilePage;
+
+        userProfilePage = new UserProfilePage(getDriver());
+
+        userProfilePage.clickProfileIconBtn();
+        userProfilePage.clickEnterToProfileBtn();
+
+        userProfilePage.clickdeleteAccBtn();
+
+        Assert.assertEquals(userProfilePage.checkdeleteAccText(), "Are you sure you want to delete your account?");
+
+        userProfilePage.clickdeleteAccCancelBtn();
+        userProfilePage.clickdeleteAccBtn();
+        userProfilePage.clickdeleteAccOkBtn();
+        //add assertion user acc was deleted msg
+        Thread.sleep(2000);
+        Assert.assertTrue(userProfilePage.checkLoginBtn(), "Account was deleted");
+    }
 }
