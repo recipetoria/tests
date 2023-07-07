@@ -16,10 +16,9 @@ public class StartPage extends BasePage{
     }
 
     public StartPage clickButtonLogIn() {
-        getDriver().findElement(By.xpath("//a[text()='Get started']")).click();
+        getDriver().findElement(By.xpath("//a[text()='Log in']")).click();
         return this;
     }
-
 
     public StartPage avatarBtn() {
         getDriver().findElement(By.cssSelector(".avatar__image_default")).click();

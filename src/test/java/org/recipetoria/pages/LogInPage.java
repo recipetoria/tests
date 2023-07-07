@@ -10,15 +10,18 @@ public class LogInPage extends BasePage {
         super(driver);
     }
 
+    public LogInPage openLoginPage() {
+        getDriver().findElement(By.xpath("//a[text()='Log in']")).click();
+        return this;
+    }
+
     public LogInPage inputEmail(String email) {
-        getDriver().findElement(By.xpath("//input[@id='email']"))
-                .sendKeys(email);
+        getDriver().findElement(By.xpath("//input[@id='email']")).sendKeys(email);
         return this;
     }
 
     public LogInPage inputPassword(String password) {
-        getDriver().findElement(By.xpath("//input[@id='password']"))
-                .sendKeys(password);
+        getDriver().findElement(By.xpath("//input[@id='password']")).sendKeys(password);
         return this;
     }
 
@@ -31,6 +34,16 @@ public class LogInPage extends BasePage {
     public LogInPage clickCheckBoxRememberMe() {
         getDriver().findElement(By.xpath("//label[normalize-space()='Remember me']"))
                 .click();
+        return this;
+    }
+
+    public LogInPage loginUser(String email, String password) {
+        new LogInPage(getDriver())
+                .openLoginPage()
+                .inputEmail(email)
+                .inputPassword(password)
+                .clickCheckBoxRememberMe()
+                .clickBtnSignIn();
         return this;
     }
 
