@@ -1,21 +1,15 @@
 package org.recipetoria.tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.recipetoria.base.TestBase;
-import org.recipetoria.base.utils;
 import org.recipetoria.pages.CategoriesPage;
-import org.recipetoria.pages.LogInPage;
 import org.recipetoria.pages.RegistrationPage;
 import org.recipetoria.pages.UserProfilePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.time.Duration;
 
 public class CategoriesTest extends TestBase {
 
@@ -46,11 +40,12 @@ public class CategoriesTest extends TestBase {
                 .openCategoryPage()
                 .clickBtnCreateNewCategory()
                 .inputCategoryName("Ca")
-                .clickBtnOkModalBox()
-                .clickBtnCancelModalBox();
+                .clickBtnOkModalBox();
 
         Assert.assertEquals(getDriver().findElement(By.xpath("//span[@class='caption caption_error']")).getText(), "Please enter a minimum of 3 characters");
 
+        new CategoriesPage(getDriver())
+                .clickBtnCancelModalBox();
     }
 
     @Test(dependsOnMethods = {"creatNewCategory"})
@@ -60,11 +55,14 @@ public class CategoriesTest extends TestBase {
                 .openCategoryPage()
                 .clickBtnCreateNewCategory()
                 .inputCategoryName("Categorycategorycategorycategor")
-                .clickBtnOkModalBox()
+                .clickBtnOkModalBox();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='caption caption_error']")));
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[@class='caption caption_error']")).getText(), "Please enter a maximum of 30 characters");
+
+        new CategoriesPage(getDriver())
                 .clickBtnCloseModalBox();
-
-        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a maximum of 30 characters']")).getText(), "Please enter a maximum of 30 characters");
-
     }
 
     @Test(dependsOnMethods = {"creatNewCategory"})
@@ -95,12 +93,6 @@ public class CategoriesTest extends TestBase {
     @Test(dependsOnMethods = {"renameCategory"})
     public void changePictureOfCategory() throws InterruptedException {
 
-//        new LogInPage(getDriver())
-//                .loginUser("UserTest@gmail.com", "123123");
-//
-//        new CategoriesPage(getDriver())
-//                .openCategoryPage();
-
         Thread.sleep(1500);
 
         new Actions(getDriver())
@@ -111,7 +103,7 @@ public class CategoriesTest extends TestBase {
                 .perform();
 
         new CategoriesPage(getDriver())
-                .inputPictureCategory("C:\\Users\\User\\Documents\\PET\\tests\\src\\test\\resources\\categoryPict.jpg");
+                .inputPictureCategory ("C:\\Users\\User\\Documents\\PET\\tests\\src\\test\\resources\\categoryPict.jpg");
 
         Thread.sleep(10000);
 
@@ -125,7 +117,7 @@ public class CategoriesTest extends TestBase {
 
     }
 
-//    @Test(dependsOnMethods = {"changePictureOfCategory"})
+    @Test(dependsOnMethods = {"changePictureOfCategory"})
     public void deleteCategory() throws InterruptedException {
 
         Thread.sleep(1500);
@@ -163,7 +155,7 @@ public class CategoriesTest extends TestBase {
         userProfilePage.clickdeleteAccCancelBtn();
         userProfilePage.clickdeleteAccBtn();
         userProfilePage.clickdeleteAccOkBtn();
-        //add assertion user acc was deleted msg
+
         Thread.sleep(2000);
         Assert.assertTrue(userProfilePage.checkLoginBtn(), "Account was deleted");
     }

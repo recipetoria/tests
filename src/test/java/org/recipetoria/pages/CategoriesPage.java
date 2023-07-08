@@ -43,7 +43,7 @@ public class CategoriesPage extends BasePage {
 
 
     public CategoriesPage clickBtnCloseModalBox(){
-        getDriver().findElement(By.xpath("(//*[name()='path'])[9]")).click();
+        getDriver().findElement(By.xpath("//body/div/div/div/main/article/section[@role='textbox']/section[@role='textbox']/section/button[1]")).click();
         return this;
     }
 
@@ -84,4 +84,5 @@ public class CategoriesPage extends BasePage {
         getDriver().findElement(By.xpath("(//input[@type='file'])[1]")).sendKeys(filePath);
         return this;
     }
+
 }
