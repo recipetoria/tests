@@ -30,12 +30,40 @@ public class CategoriesTest extends TestBase {
                 .openCategoryPage()
                 .clickBtnCreateNewCategory()
                 .inputCategoryName(name)
-                .clickBtnOk();
+                .clickBtnOkModalBox();
 
         getWait2().until(ExpectedConditions.
                 visibilityOfElementLocated(By.xpath("//h4[text()='TestCategory']")));
 
         Assert.assertEquals(getDriver().findElement(By.xpath("//h4[text()='TestCategory']")).getText(), name);
+
+    }
+
+    @Test(dependsOnMethods = {"creatNewCategory"})
+    public void messageMinValueOfNameCategory() {
+
+        new CategoriesPage(getDriver())
+                .openCategoryPage()
+                .clickBtnCreateNewCategory()
+                .inputCategoryName("Ca")
+                .clickBtnOkModalBox()
+                .clickBtnCancelModalBox();
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[@class='caption caption_error']")).getText(), "Please enter a minimum of 3 characters");
+
+    }
+
+    @Test(dependsOnMethods = {"creatNewCategory"})
+    public void messageMaxValueOfNameCategory() {
+
+        new CategoriesPage(getDriver())
+                .openCategoryPage()
+                .clickBtnCreateNewCategory()
+                .inputCategoryName("Categorycategorycategorycategor")
+                .clickBtnOkModalBox()
+                .clickBtnCloseModalBox();
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='Please enter a maximum of 30 characters']")).getText(), "Please enter a maximum of 30 characters");
 
     }
 
@@ -65,7 +93,7 @@ public class CategoriesTest extends TestBase {
     }
 
     @Test(dependsOnMethods = {"renameCategory"})
-    public void changePhotoOfCategory() throws InterruptedException {
+    public void changePictureOfCategory() throws InterruptedException {
 
 //        new LogInPage(getDriver())
 //                .loginUser("UserTest@gmail.com", "123123");
@@ -97,7 +125,7 @@ public class CategoriesTest extends TestBase {
 
     }
 
-    @Test(dependsOnMethods = {"changePhotoOfCategory"})
+//    @Test(dependsOnMethods = {"changePictureOfCategory"})
     public void deleteCategory() throws InterruptedException {
 
         Thread.sleep(1500);

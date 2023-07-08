@@ -31,18 +31,24 @@ public class CategoriesPage extends BasePage {
         return this;
     }
 
-    public CategoriesPage clickBtnOk(){
+    public CategoriesPage clickBtnOkModalBox(){
         getDriver().findElement(By.xpath("//button[text()='Ok']")).click();
         return this;
     }
 
-    public CategoriesPage clickBtnCancel(){
+    public CategoriesPage clickBtnCancelModalBox(){
         getDriver().findElement(By.xpath("//button[text()='Cancel']")).click();
         return this;
     }
 
+
+    public CategoriesPage clickBtnCloseModalBox(){
+        getDriver().findElement(By.xpath("(//*[name()='path'])[9]")).click();
+        return this;
+    }
+
     public CategoriesPage openCategory(){
-        getDriver().findElement(By.xpath("")).click();
+        getDriver().findElement(By.xpath("")).click(); // Дописать
         return this;
     }
 
