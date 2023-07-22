@@ -8,7 +8,14 @@ import org.recipetoria.pages.CategoriesPage;
 import org.recipetoria.pages.RegistrationPage;
 import org.recipetoria.pages.UserProfilePage;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CategoriesTest extends TestBase {
@@ -60,6 +67,23 @@ public class CategoriesTest extends TestBase {
         getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='caption caption_error']")));
 
         Assert.assertEquals(getDriver().findElement(By.xpath("//span[@class='caption caption_error']")).getText(), "Please enter a maximum of 30 characters");
+
+        new CategoriesPage(getDriver())
+                .clickBtnCloseModalBox();
+    }
+
+    @Test(dependsOnMethods = {"creatNewCategory"})
+    public void messageCategoryIsAlreadyExist() {
+
+        new CategoriesPage(getDriver())
+                .openCategoryPage()
+                .clickBtnCreateNewCategory()
+                .inputCategoryName("TestCategory")
+                .clickBtnOkModalBox();
+
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='caption caption_error']")));
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//span[@class='caption caption_error']")).getText(), "This category is already exist");
 
         new CategoriesPage(getDriver())
                 .clickBtnCloseModalBox();
@@ -137,6 +161,47 @@ public class CategoriesTest extends TestBase {
 
         Assert.assertEquals(getDriver().findElement(By.xpath("//span[normalize-space()='The category was deleted']")).getText(), "The category was deleted");
 
+    }
+
+    @DataProvider(name = "registrationData")
+    public Object[][] getData() throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get("src/test/resources/dataCategories.txt"));
+        List<Object[]> data = new ArrayList<>();
+
+        for (String line : lines) {
+            data.add(new Object[]{line});
+        }
+
+        return data.toArray(new Object[0][]);
+
+    }
+
+    @Test(dataProvider = "registrationData")
+    public void registrationNewCategory(String name) {
+
+        new CategoriesPage(getDriver())
+                .openCategoryPage()
+                .clickBtnCreateNewCategory()
+                .inputCategoryName(name)
+                .clickBtnOkModalBox();
+
+
+        if (name.contains("'")) {
+            String escapedName = name.replace("'", "\",\"'\",\"");
+            getWait2().until(ExpectedConditions.
+                    visibilityOfElementLocated(By.xpath("//h4[text()=concat('" + escapedName + "')]")));
+            Assert.assertEquals(getDriver().findElement(By.xpath("//h4[text()=concat('" + escapedName + "')]")).getText(), name);
+        } else {
+            getWait2().until(ExpectedConditions.
+                    visibilityOfElementLocated(By.xpath("//h4[text()='" + name + "']")));
+            Assert.assertEquals(getDriver().findElement(By.xpath("//h4[text()='" + name + "']")).getText(), name);
+        }
+
+
+        getWait2().until(ExpectedConditions.
+                visibilityOfElementLocated(By.xpath("//h4[text()='"+ name + "']")));
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//h4[text()='"+ name + "']")).getText(), name);
     }
 
     @Test(dependsOnMethods = {"deleteCategory"})

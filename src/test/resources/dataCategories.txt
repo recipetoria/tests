@@ -1,4 +1,4 @@
 CAT
 Category
 CateГория()[]{};:'!"@#$%^_&123
-category*?/\|<>,.
+category-*?/\|<>,.

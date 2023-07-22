@@ -65,7 +65,7 @@ public class RegistrationPage extends BasePage {
 
         new StartPage(getDriver())
                 .clickButtonGetStarted();
-        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
+        getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[normalize-space()='Welcome to Recipetoria!']")));
 
         new RegistrationPage(getDriver())
                 .inputNickname(nickName)
