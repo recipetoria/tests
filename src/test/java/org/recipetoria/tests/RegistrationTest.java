@@ -264,7 +264,7 @@ public class RegistrationTest extends TestBase {
         getWait2().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Welcome to Reciptoria!']")));
 
         Assert.assertEquals(getDriver().findElement(By.xpath("//a[normalize-space()='Sign in']")).getAttribute("href"),
-                "http://209.38.198.69:3000/sign_in");
+                "http://209.38.198.69:3000/sign_in"); // тут лучше указывать BaseUrl, а не адрес сайта
     }
 
     @Test
